@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid black;
+    font-family: roboto, sans-serif;
+    min-width: 0;
+    min-height: 0;
+}
+
+body {
+    margin: 0px;
+}
+
+#main {
+    background-image: url("img/sportsfield.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-color: rgba(215, 239, 178, 0.804);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 2px solid red;
+    z-index: 1;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+}
+
+.modal {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgb(100, 100, 100, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    /* visibility: hidden; */
+}
+
+#welcome-box {
+    background-color: #4bb34ee0;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    z-index: 3;
+    position: fixed;
+    /* animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-delay: 2000; */
+    /* visibility: hidden; */
+    box-shadow: 0px 0px 8px 4px rgba(237, 236, 236, 0.872) inset;
+}
+
+#welcome-span {
+    padding: 40px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+#rpsChosen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+#rpsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#rpsContainer img {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+}
+
+#rpsContainer img:hover {
+    transform: translateY(-35px) scale(1.15);
+}
+
+#rpsContainer img:active {
+    transform: translateY(-65px) scale(1.15);
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    color: white
+}
