@@ -65,10 +65,14 @@ rpsContainer.addEventListener("click", event => {
 
 const showWelcome = function(){
     window.addEventListener("load", () => {
-        modal.style.visibility = "visible";
-        welcomeBox.style.visibility = "visible";
+        setTimeout( () => {
+            modal.style.visibility = "visible";
+            welcomeBox.style.visibility = "visible";
+        }, 500);
     })
 }
-setTimeout(showWelcome(), 3000);
+showWelcome();
 
-welcomeSpan.onclick = "style.display='none'";
+// welcomeSpan.onclick = "this.style.visibility='hidden'";
+// welcomeBox.onclick = "this.style.visibility='hidden'";
+// modal.onclick = "this.style.visibility='hidden'";
