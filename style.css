@@ -27,42 +27,40 @@ body {
 
 h1 {
     text-align: center;
-}
-
-.modal {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    background-color: rgb(100, 100, 100, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    visibility: hidden;
-}
-
-#welcome-box {
-    background-color: #4bb34ee0;
+    font-weight: 700;
     color: rgb(255, 255, 255);
-    border-radius: 5px;
-    z-index: 3;
-    position: fixed;
-    /* animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-delay: 2000; */
-    visibility: hidden;
-    box-shadow: 0px 0px 8px 4px rgba(237, 236, 236, 0.872) inset;
+    font-size: 55px;
+    text-shadow: 4px 4px rgba(82, 91, 80, 0.897), -2px -2px rgba(46, 196, 16, 0.852), -2px 2px rgba(46, 196, 16, 0.852), 2px -2px rgba(46, 196, 16, 0.852);
 }
 
-#welcome-span {
+span {
     padding: 40px;
-    color: rgb(255, 255, 255);
+    color: rgb(231, 112, 112);
     font-weight: bold;
     float: right;
     font-size: 25px;
     cursor: pointer;
     transition: 0.3s;
     text-align: center;
+}
+
+dialog {
+    background-color: #4bb34ee0;
+    border-radius: 5px;
+    z-index: 3;
+    box-shadow: 0px 0px 8px 4px rgba(237, 236, 236, 0.872) inset;
+}
+
+#scoreboard {
+
+}
+
+#results {
+    padding-top: 40px;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(184, 26, 26);
+    font-weight: 750;
 }
 
 #rpsChosen {

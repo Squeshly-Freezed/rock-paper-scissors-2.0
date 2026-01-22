@@ -1,13 +1,15 @@
 let computerScore = 0;
 let humanScore = 0;
 let gameRounds = 0;
-const rpsContainer = document.querySelector("#rpsContainer");
+
 const results = document.querySelector("#results");
 const homeChosen = document.querySelector("#home-chosen");
 const guestChosen = document.querySelector("#guest-chosen");
 const modal = document.querySelector(".modal");
 const welcomeBox = document.querySelector("#welcome-box");
 const welcomeSpan = document.querySelector("#welcome-span");
+const winBox = document.querySelector("#win-box");
+const loseBox = document.querySelector("#lose-box");
 
 
 function playRound(humanChoice, computerChoice) {
@@ -26,39 +28,43 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanScore == 5) {
         results.textContent = "*You win the game!*";
+        winBox.showModal()
     } else  if (computerScore == 5) {
         results.textContent = "*You lose the game!*";
+        loseBox.showModal()
     }
 }
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
+    guestChosen.style.visibility = "visible";
     if (computerChoice == 0) {
-        guestChosen.src = "img/rocktransparent.png";
+        guestChosen.src = "imgs/rock.png";
         return "rock";
     } else if (computerChoice == 1) {
-        guestChosen.src = "img/papertransparent.png";
+        guestChosen.src = "imgs/paper.png";
         return "paper";
     } else {
-        guestChosen.src = "img/scissorstransparent.png";
+        guestChosen.src = "imgs/scissors.png";
         return "scissors";
     }
 }
 
-rpsContainer.addEventListener("click", event => {
+const rpsContainer = document.querySelector("#rpsContainer").addEventListener("click", event => {
     let target = event.target;
+    homeChosen.style.visibility = "visible";
     switch(target.id) {
         case "rock-image":
             playRound("rock", getComputerChoice());
-            homeChosen.src = "img/rocktransparent.png";
+            homeChosen.src = "imgs/rock.png";
             break;
         case "paper-image":
             playRound("paper", getComputerChoice());
-            homeChosen.src = "img/papertransparent.png";
+            homeChosen.src = "imgs/paper.png";
             break;
         case "scissors-image":
             playRound("scissors", getComputerChoice());
-            homeChosen.src = "img/scissorstransparent.png";
+            homeChosen.src = "imgs/scissors.png";
             break;
     }
 });
@@ -66,13 +72,8 @@ rpsContainer.addEventListener("click", event => {
 const showWelcome = function(){
     window.addEventListener("load", () => {
         setTimeout( () => {
-            modal.style.visibility = "visible";
-            welcomeBox.style.visibility = "visible";
-        }, 500);
+            welcomeBox.showModal();
+        }, 30000);
     })
 }
 showWelcome();
-
-// welcomeSpan.onclick = "this.style.visibility='hidden'";
-// welcomeBox.onclick = "this.style.visibility='hidden'";
-// modal.onclick = "this.style.visibility='hidden'";
