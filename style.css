@@ -31,25 +31,27 @@ h1 {
     text-shadow: 4px 4px rgba(82, 91, 80, 0.897), -2px -2px rgba(46, 196, 16, 0.852), -2px 2px rgba(46, 196, 16, 0.852), 2px -2px rgba(46, 196, 16, 0.852);
 }
 
-dialog span {
-    padding: 40px;
-    color: rgb(255, 254, 254);
-    font-weight: bold;
-    float: right;
-    font-size: 4vw;
-    cursor: pointer;
-    text-align: center;
-}
-
-dialog {
+#dialog-box {
     background-color: #2bb930e0;
     border-radius: 5px;
     box-shadow: 0px 0px 8px 4px rgba(237, 236, 236, 0.872) inset;
+    text-align: center;
+    max-width: 50vw;
 }
 
-dialog::backdrop {
+#dialog-box::backdrop {
     background-color: hsl(0 0 0 / 0.5);
     backdrop-filter: blur(2px);
+}
+
+#dialog-box span {
+    display: flex;
+    color: rgb(255, 254, 254);
+    font-weight: bold;
+    font-size: 4vw;
+    cursor: pointer;
+    align-items: center;
+    padding: 30px;
 }
 
 #scoreboard {

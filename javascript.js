@@ -8,11 +8,8 @@ const homeChosen = document.querySelector("#home-chosen");
 const guestChosen = document.querySelector("#guest-chosen");
 homeChosen.classList.add("visible");
 guestChosen.classList.add("visible");
-const welcomeBox = document.querySelector("#welcome-box");
+const dialogBox = document.querySelector("#dialog-box");
 const welcomeSpan = document.querySelector("#welcome-span");
-const winBox = document.querySelector("#win-box");
-const loseBox = document.querySelector("#lose-box");
-
 
 
 function playRound(humanChoice, computerChoice) {
@@ -23,19 +20,21 @@ function playRound(humanChoice, computerChoice) {
         resultsSpan.textContent = `It's a tie.`;
     } else if (hC == "rock" && cC == "scissors" || hC == "scissors" && cC == "paper" || hC == "paper" && cC == "rock") {
         ++humanScore;
-        resultsSpan.textContent = `You win. ${hC} beats ${cC}.`;
+        resultsSpan.textContent = `You win - ${hC} beats ${cC}.`;
     } else { 
         ++computerScore;
-        resultsSpan.textContent = `You lose. ${cC} beats ${hC}.`;
+        resultsSpan.textContent = `You lose - ${cC} beats ${hC}.`;
     }
 
     if (humanScore == 5) {
         resultsSpan.textContent = "";
-        winBox.showModal()
+        dialogBox.showModal()
+        dialogBox.firstElementChild.innerHTML = "You rock!<br><br>You've won the game!";
         humanScore = 0;
     } else  if (computerScore == 5) {
         resultsSpan.textContent = "";
-        loseBox.showModal()
+        dialogBox.showModal()
+        dialogBox.firstElementChild.innerHTML = "You suck!<br><br>You've lost the game!";
         humanScore = 0;
     }
 }
@@ -78,12 +77,12 @@ const rpsContainer = document.querySelector("#rpsContainer").addEventListener("c
 const showWelcome = function(){
     window.addEventListener("load", () => {
         setTimeout( () => {
-            welcomeBox.showModal();
-        }, 20000);
+            dialogBox.showModal();
+            dialogBox.firstElementChild.innerHTML = 
+            `Welcome to Rock Paper Scissors!<br><br>The first player to win 5 rounds wins the game!`;
+        }, 5000);
     })
 }
-showWelcome();
-
 
 function rpsChosenFade () {
     setTimeout( () => {
@@ -92,6 +91,8 @@ function rpsChosenFade () {
     }, 500);
 }
 
-welcomeBox.addEventListener("click", (event) => {
-    if (event.target === welcomeBox) welcomeBox.close();
+dialogBox.addEventListener("click", (event) => {
+    if (event.target != dialogBox) dialogBox.close();
 });
+
+showWelcome();
