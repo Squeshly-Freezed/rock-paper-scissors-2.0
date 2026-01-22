@@ -3,13 +3,16 @@ let humanScore = 0;
 let gameRounds = 0;
 
 const results = document.querySelector("#results");
+const resultsSpan = document.querySelector("#results-span");
 const homeChosen = document.querySelector("#home-chosen");
 const guestChosen = document.querySelector("#guest-chosen");
-const modal = document.querySelector(".modal");
+homeChosen.classList.add("visible");
+guestChosen.classList.add("visible");
 const welcomeBox = document.querySelector("#welcome-box");
 const welcomeSpan = document.querySelector("#welcome-span");
 const winBox = document.querySelector("#win-box");
 const loseBox = document.querySelector("#lose-box");
+
 
 
 function playRound(humanChoice, computerChoice) {
@@ -17,21 +20,23 @@ function playRound(humanChoice, computerChoice) {
     let cC = computerChoice;
 
     if (hC == cC) {
-        results.textContent = `It's a tie.`;
+        resultsSpan.textContent = `It's a tie.`;
     } else if (hC == "rock" && cC == "scissors" || hC == "scissors" && cC == "paper" || hC == "paper" && cC == "rock") {
         ++humanScore;
-        results.textContent = `You win. ${hC} beats ${cC}.`;
+        resultsSpan.textContent = `You win. ${hC} beats ${cC}.`;
     } else { 
         ++computerScore;
-        results.textContent = `You lose. ${cC} beats ${hC}.`;
+        resultsSpan.textContent = `You lose. ${cC} beats ${hC}.`;
     }
 
     if (humanScore == 5) {
-        results.textContent = "";
+        resultsSpan.textContent = "";
         winBox.showModal()
+        humanScore = 0;
     } else  if (computerScore == 5) {
-        results.textContent = "";
+        resultsSpan.textContent = "";
         loseBox.showModal()
+        humanScore = 0;
     }
 }
 
@@ -53,6 +58,7 @@ function getComputerChoice() {
 const rpsContainer = document.querySelector("#rpsContainer").addEventListener("click", event => {
     let target = event.target;
     homeChosen.style.visibility = "visible";
+    rpsChosenFade();
     switch(target.id) {
         case "rock-image":
             playRound("rock", getComputerChoice());
@@ -73,7 +79,19 @@ const showWelcome = function(){
     window.addEventListener("load", () => {
         setTimeout( () => {
             welcomeBox.showModal();
-        }, 30000);
+        }, 20000);
     })
 }
 showWelcome();
+
+
+function rpsChosenFade () {
+    setTimeout( () => {
+        homeChosen.classList.remove("visible");
+        guestChosen.classList.remove("visible");
+    }, 500);
+}
+
+welcomeBox.addEventListener("click", (event) => {
+    if (event.target === welcomeBox) welcomeBox.close();
+});

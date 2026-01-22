@@ -20,12 +20,10 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    border: 2px solid red;
-    z-index: 1;
-    position: relative;
 }
 
 h1 {
+    margin: auto;
     text-align: center;
     font-weight: 700;
     color: rgb(255, 255, 255);
@@ -33,22 +31,25 @@ h1 {
     text-shadow: 4px 4px rgba(82, 91, 80, 0.897), -2px -2px rgba(46, 196, 16, 0.852), -2px 2px rgba(46, 196, 16, 0.852), 2px -2px rgba(46, 196, 16, 0.852);
 }
 
-span {
+dialog span {
     padding: 40px;
-    color: rgb(231, 112, 112);
+    color: rgb(255, 254, 254);
     font-weight: bold;
     float: right;
     font-size: 4vw;
     cursor: pointer;
-    transition: 0.3s;
     text-align: center;
 }
 
 dialog {
-    background-color: #4bb34ee0;
+    background-color: #2bb930e0;
     border-radius: 5px;
-    z-index: 3;
     box-shadow: 0px 0px 8px 4px rgba(237, 236, 236, 0.872) inset;
+}
+
+dialog::backdrop {
+    background-color: hsl(0 0 0 / 0.5);
+    backdrop-filter: blur(2px);
 }
 
 #scoreboard {
@@ -56,12 +57,15 @@ dialog {
 }
 
 #results {
-    padding-top: 40px;
+    padding-top: 2rem;
     text-align: center;
+}
+
+#results span{
     font-size: 4.5vw;
     color: rgb(184, 26, 26);
     font-weight: 750;
-    z-index: 0;
+    
 }
 
 button {
@@ -75,16 +79,17 @@ button {
     justify-content: center;
     align-items: center;
     flex: 1;
-    /* gap: 100px; */
-}
-
-#rpsChosen img {
-    /* display: flex; */
-    /* flex: 1; */
+    gap: 45vw;
 }
 
 #home-chosen, #guest-chosen {
     visibility: hidden;
+    opacity: 0;
+    transition: opacity 2.0s ease-out;
+}
+
+#home-chosen.visible, #guest-chosen.visible {
+    opacity: 1;
 }
 
 #rpsContainer {
@@ -106,8 +111,6 @@ button {
 #rpsContainer img:active {
     transform: translateY(-65px) scale(1.15);
 }
-
-
 
 #footer {
     display: flex;
