@@ -27,10 +27,10 @@ function playRound(humanChoice, computerChoice) {
     }
 
     if (humanScore == 5) {
-        results.textContent = "*You win the game!*";
+        results.textContent = "";
         winBox.showModal()
     } else  if (computerScore == 5) {
-        results.textContent = "*You lose the game!*";
+        results.textContent = "";
         loseBox.showModal()
     }
 }

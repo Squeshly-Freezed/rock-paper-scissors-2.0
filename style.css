@@ -29,7 +29,7 @@ h1 {
     text-align: center;
     font-weight: 700;
     color: rgb(255, 255, 255);
-    font-size: 55px;
+    font-size: 6.5vw;
     text-shadow: 4px 4px rgba(82, 91, 80, 0.897), -2px -2px rgba(46, 196, 16, 0.852), -2px 2px rgba(46, 196, 16, 0.852), 2px -2px rgba(46, 196, 16, 0.852);
 }
 
@@ -38,7 +38,7 @@ span {
     color: rgb(231, 112, 112);
     font-weight: bold;
     float: right;
-    font-size: 25px;
+    font-size: 4vw;
     cursor: pointer;
     transition: 0.3s;
     text-align: center;
@@ -58,9 +58,16 @@ dialog {
 #results {
     padding-top: 40px;
     text-align: center;
-    font-size: 40px;
+    font-size: 4.5vw;
     color: rgb(184, 26, 26);
     font-weight: 750;
+    z-index: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 #rpsChosen {
@@ -68,6 +75,16 @@ dialog {
     justify-content: center;
     align-items: center;
     flex: 1;
+    /* gap: 100px; */
+}
+
+#rpsChosen img {
+    /* display: flex; */
+    /* flex: 1; */
+}
+
+#home-chosen, #guest-chosen {
+    visibility: hidden;
 }
 
 #rpsContainer {
@@ -75,12 +92,6 @@ dialog {
     justify-content: center;
     align-items: center;
     flex: 1;
-}
-
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 #rpsContainer img {
@@ -96,8 +107,11 @@ button {
     transform: translateY(-65px) scale(1.15);
 }
 
+
+
 #footer {
     display: flex;
     justify-content: center;
-    color: white
+    color: white;
+    font-size: 1vw;
 }
