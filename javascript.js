@@ -6,8 +6,6 @@ const results = document.querySelector("#results");
 const resultsSpan = document.querySelector("#results-span");
 const homeChosen = document.querySelector("#home-chosen");
 const guestChosen = document.querySelector("#guest-chosen");
-homeChosen.classList.add("visible");
-guestChosen.classList.add("visible");
 const dialogBox = document.querySelector("#dialog-box");
 const welcomeSpan = document.querySelector("#welcome-span");
 
@@ -31,11 +29,13 @@ function playRound(humanChoice, computerChoice) {
         dialogBox.showModal()
         dialogBox.firstElementChild.innerHTML = "You rock!<br><br>You've won the game!";
         humanScore = 0;
+        computerScore = 0;
     } else  if (computerScore == 5) {
         resultsSpan.textContent = "";
         dialogBox.showModal()
         dialogBox.firstElementChild.innerHTML = "You suck!<br><br>You've lost the game!";
         humanScore = 0;
+        computerScore = 0;
     }
 }
 
@@ -80,15 +80,19 @@ const showWelcome = function(){
             dialogBox.showModal();
             dialogBox.firstElementChild.innerHTML = 
             `Welcome to Rock Paper Scissors!<br><br>The first player to win 5 rounds wins the game!`;
-        }, 5000);
+        }, 300);
     })
 }
 
+homeChosen.classList.add("visible");
+guestChosen.classList.add("visible");
 function rpsChosenFade () {
     setTimeout( () => {
         homeChosen.classList.remove("visible");
         guestChosen.classList.remove("visible");
-    }, 500);
+    }, 600);
+    homeChosen.classList.add("visible");
+    guestChosen.classList.add("visible");
 }
 
 dialogBox.addEventListener("click", (event) => {
