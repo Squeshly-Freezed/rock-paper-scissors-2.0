@@ -53,14 +53,14 @@ h1 {
     padding: 30px;
 }
 
-#results {
+#results, #running-score {
     padding-top: 3rem;
     text-align: center;
 }
 
 #results span{
     font-size: 4.5vw;
-    color: rgb(184, 26, 26);
+    color: rgb(196, 12, 12);
     font-weight: 750;
 }
 

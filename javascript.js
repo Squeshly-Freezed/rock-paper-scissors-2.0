@@ -8,6 +8,7 @@ const homeChosen = document.querySelector("#home-chosen");
 const guestChosen = document.querySelector("#guest-chosen");
 const dialogBox = document.querySelector("#dialog-box");
 const welcomeSpan = document.querySelector("#welcome-span");
+const runningScore = document.querySelector("#running-score");
 
 
 function playRound(humanChoice, computerChoice) {
@@ -19,9 +20,11 @@ function playRound(humanChoice, computerChoice) {
     } else if (hC == "rock" && cC == "scissors" || hC == "scissors" && cC == "paper" || hC == "paper" && cC == "rock") {
         ++humanScore;
         resultsSpan.textContent = `You win - ${hC} beats ${cC}.`;
+
     } else { 
         ++computerScore;
         resultsSpan.textContent = `You lose - ${cC} beats ${hC}.`;
+
     }
 
     if (humanScore == 5) {
@@ -37,6 +40,7 @@ function playRound(humanChoice, computerChoice) {
         humanScore = 0;
         computerScore = 0;
     }
+    runningScore.textContent = `HOME: ${humanScore} \u00A0\u00A0\u00A0\u00A0 GUEST: ${computerScore}`;
 }
 
 function getComputerChoice() {
